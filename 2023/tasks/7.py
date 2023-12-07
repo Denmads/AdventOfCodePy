@@ -132,7 +132,7 @@ class Hand:
             return self._find_hand_type()
                 
         best_type: HandType = HandType.HIGH_CARD
-        while not all(map(lambda x: x == 13, jokers)):
+        while not jokers[-1] > 13:
             counts = self._get_card_counts(self.cards)
             del counts['J']
             
@@ -166,7 +166,7 @@ class Hand:
     def _increment_jokers(self, jokers) -> list[int]:
         jokers[0] += 1
         
-        for i in range(len(jokers)):
+        for i in range(len(jokers)-1):
             if jokers[i] > 13:
                 jokers[i] = 2
                 jokers[i+1] += 1

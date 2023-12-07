@@ -215,9 +215,6 @@ def run_a(hands: list[Hand]):
 def run_b(hands: list[Hand]):
     for h in hands:
         h.calculate_b()
-    
-    for h in hands:
-        print(f'{h.cards}: {h.type.name}')
         
     hands.sort(key=functools.cmp_to_key(compare_hands), reverse=True)
         

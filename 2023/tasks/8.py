@@ -14,7 +14,7 @@ class Node:
 
 NodeDict = dict[str, tuple[str, str]]
 
-def parse_input(data: str) -> tuple[list[str], NodeDict]:
+def parse_input(data: str, part: str) -> tuple[list[str], NodeDict]:
     (dirs, nodes_lines) = data.split('\n\n')
 
     directions = list(dirs)

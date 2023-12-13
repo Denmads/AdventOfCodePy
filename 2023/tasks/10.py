@@ -41,7 +41,7 @@ class Pipe:
     left: Union['Pipe', None] = field(init=False)
     right: Union['Pipe', None] = field(init=False)
 
-def parse_input(data: str) -> tuple[list[list[Pipe]], Pipe]:
+def parse_input(data: str, part: str) -> tuple[list[list[Pipe]], Pipe]:
     pipes: list[list[Pipe]] = []
     start_pipe: Pipe = None
     

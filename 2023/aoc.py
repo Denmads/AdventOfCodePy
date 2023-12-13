@@ -13,7 +13,7 @@ def main(day: str, part: str):
     print("")
 
     start = time.perf_counter()
-    parsed_input = task.parse_input(input_txt)
+    parsed_input = task.parse_input(input_txt, part)
     parse_time = time.perf_counter() - start
     
     start = time.perf_counter()

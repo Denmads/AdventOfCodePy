@@ -3,7 +3,7 @@ from typing import Any
 
 # //////////////////// PARSING & TYPES /////////////////////////
 
-def parse_input(data: str) -> tuple[list[int], list[int]]:
+def parse_input(data: str, part: str) -> tuple[list[int], list[int]]:
     (time_str, dist_str) = data.split('\n')
 
     return (

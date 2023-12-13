@@ -17,7 +17,7 @@ class Card:
                 self.matches += 1
         
 
-def parse_input(data: str) -> list[Card]:
+def parse_input(data: str, part: str) -> list[Card]:
     cards: list[Card] = []
     
     for line in data.split('\n'):

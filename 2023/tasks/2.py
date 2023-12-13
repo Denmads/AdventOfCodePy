@@ -15,7 +15,7 @@ class Game:
     
     
 
-def parse_input(data: str) -> list[Game]:
+def parse_input(data: str, part: str) -> list[Game]:
     games = data.split('\n')
     return list(map(parse_game, games))
 

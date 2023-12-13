@@ -2,7 +2,7 @@ from typing import Any
 import re
 
 # Parse all numbers out
-def parse_input(data: str) -> list[str]:
+def parse_input(data: str, part: str) -> list[str]:
     lines = data.split('\n')
     return lines
         

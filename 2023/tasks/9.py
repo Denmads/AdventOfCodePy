@@ -14,7 +14,7 @@ class Sequence:
             
         return Sequence(diffs)
 
-def parse_input(data: str) -> list[Sequence]:
+def parse_input(data: str, part: str) -> list[Sequence]:
     return list(
         map(lambda l: Sequence(list(map(int, l.split(' ')))), data.split('\n'))
     )

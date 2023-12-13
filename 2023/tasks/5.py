@@ -60,7 +60,7 @@ def map_translator(string: str) -> CategoryTranslator:
 
 SeedList = list[int]
 
-def parse_input(data: str) -> tuple[SeedList, list[CategoryTranslator]]:
+def parse_input(data: str, part: str) -> tuple[SeedList, list[CategoryTranslator]]:
     segments = data.split('\n\n')
 
     seeds = list(map(lambda x: int(x), segments[0][7:].split(' ')))

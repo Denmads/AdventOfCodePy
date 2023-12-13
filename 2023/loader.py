@@ -5,7 +5,7 @@ from typing import Any
 class TaskInterface:
     
     @staticmethod
-    def parse_input(input: str) -> Any:
+    def parse_input(input: str, part: str) -> Any:
         """Parses the input"""
     
     @staticmethod

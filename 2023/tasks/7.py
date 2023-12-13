@@ -175,7 +175,7 @@ class Hand:
         
         
 
-def parse_input(data: str) -> list[Hand]:
+def parse_input(data: str, part: str) -> list[Hand]:
     hands = []
     for line in data.split('\n'):
         (cards, bid) = line.split(' ')

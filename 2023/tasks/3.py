@@ -30,7 +30,7 @@ class Container:
         return list(filter(lambda number: number.pos[1] == y, self.numbers))
 
 
-def parse_input(data: str) -> Container:
+def parse_input(data: str, part: str) -> Container:
     numbers = []
     symbols = []
     

@@ -2,7 +2,7 @@ from typing import Any
 
 # //////////////////// PARSING & TYPES /////////////////////////
 
-def parse_input(data: str) -> Any:
+def parse_input(data: str, part: str) -> Any:
     pass
 
 

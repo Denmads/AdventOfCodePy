@@ -185,16 +185,14 @@ def ends_in_loop(guard: Guard, obstacles: set[Vector2], room: Map) -> bool:
         in_front_pos = Vector2(guard.x + dir.x, guard.y + dir.y)
         if in_front_pos in obstacles:
             guard.dir = get_next_dir(guard.dir)
+        else:
+            position = (guard.x, guard.y, guard.dir)
+            if (position in visited):
+                return True
             
-        dir = get_dir_vector(guard.dir)
-        
-        position = (guard.x, guard.y, guard.dir)
-        if (position in visited):
-            return True
-        
-        visited.add(position)
-            
-        guard.x += dir.x
-        guard.y += dir.y
+            visited.add(position)
+                
+            guard.x += dir.x
+            guard.y += dir.y
         
     return False

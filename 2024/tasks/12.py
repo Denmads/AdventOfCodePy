@@ -4,8 +4,6 @@ from typing import Any
 
 # //////////////////// PARSING & TYPES /////////////////////////
 
-type RegionMap = dict[tuple[int, int], Region]
-
 class Direction(Enum):
     UP = (0, -1)
     DOWN = (0, 1)
@@ -23,22 +21,22 @@ class Region:
     plant_type: str
     plots: list[Plot] = field(default_factory=list)
 
-def parse_input(data: str, part: str) -> tuple[RegionMap, list[Region]]:
-    plot_region_map: RegionMap = {}
+def parse_input(data: str, part: str) -> list[Region]:
+    in_region = set()
     regions: list[Region] = []
 
     garden_map = parse_garden(data)
 
     for y in range(len(garden_map)):
         for x in range(len(garden_map[y])):
-            if (x, y) not in plot_region_map:
+            if (x, y) not in in_region:
                 region = flood_fill_region(garden_map, x, y)
                 regions.append(region)
                 
                 for plot in region.plots:
-                    plot_region_map[(plot.x, plot.y)] = region
+                    in_region.add((plot.x, plot.y))
 
-    return (plot_region_map, regions)
+    return regions
 
 def parse_garden(data: str) -> list[list[str]]:
     garden = [[] for _ in range(len(data.split("\n")[0]))]
@@ -87,23 +85,18 @@ def flood_fill_region(garden: list[list[str]], x: int, y: int):
 
 # //////////////////// PARTS /////////////////////////
 
-def run_a(data: tuple[RegionMap, list[Region]]):
-    (region_map, regions) = data
+def run_a(data: list[Region]):
     
     total = 0
-    for reg in regions:
+    for reg in data:
         perimeter = sum(map(lambda p: 4 - len(p.neighbors), reg.plots))
         total += perimeter * len(reg.plots)
         
     print(f"Price is {total}")
 
-def run_b(data: tuple[RegionMap, list[Region]]):
-    (region_map, regions) = data
-    
-    
-    
+def run_b(data: list[Region]):
     total = 0
-    for reg in regions:
+    for reg in data:
         
         sides: dict[tuple[int, str, str], list[int]] = {}
         

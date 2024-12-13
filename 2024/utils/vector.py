@@ -21,6 +21,11 @@ class Vector2i:
             self.x += other.x
             self.y += other.y
         return self
+    
+    def __eq__(self, other):
+        if type(other) == Vector2i:
+            return self.x == other.x and self.y == other.y
+        return False
 
     def __str__(self):
         return f"({self.x}, {self.y})"

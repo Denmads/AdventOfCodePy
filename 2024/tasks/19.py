@@ -78,6 +78,9 @@ def is_possible(patterns: dict[str, list[str]], checked_designs: dict[str, bool]
 
 
 def possible_ways_of_creations(patterns: dict[str, list[str]], num_ways: dict[str, int], design: str, level: int = 0) -> int:
+    if len(design) == 0:
+        return 1
+    
     if design in num_ways:
         return num_ways[design]
     
@@ -86,12 +89,6 @@ def possible_ways_of_creations(patterns: dict[str, list[str]], num_ways: dict[st
         new_design = design[len(pattern):]
         
         if pattern != design[:len(pattern)]:
-            continue
-        
-        if len(new_design) == 0:
-            # print(("  " * level) + pattern)
-            # print(("  " * level) + "Possible")
-            count += 1
             continue
         
         # print(("  " * level) + pattern)

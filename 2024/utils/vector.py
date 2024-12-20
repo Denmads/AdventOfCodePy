@@ -9,6 +9,12 @@ class Vector2i:
     def copy(self) -> "Vector2i":
         return Vector2i(self.x, self.y)
 
+    def __add__(self, other):
+        if type(other) == Vector2i:
+            return Vector2i(self.x + other.x, self.y + other.y)
+        
+        raise TypeError("other not of type Vector2i")
+
     def __mul__(self, other):
         if type(other) == int:
             return Vector2i(self.x * other + self.y * other)

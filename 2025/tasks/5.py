@@ -35,7 +35,6 @@ def run_b(data: tuple[list[IdRange], list[int]]):
 
     new_ranges = data[0]
     while len(new_ranges) != len(ranges):
-        # print(f"{len(ranges)} - {len(new_ranges)}")
 
         ranges = new_ranges
         new_ranges = []
@@ -61,7 +60,6 @@ def run_b(data: tuple[list[IdRange], list[int]]):
 
     sum = 0
     for r in new_ranges:
-        # print(r)
         sum += r.end - r.start + 1
 
     print(sum)
